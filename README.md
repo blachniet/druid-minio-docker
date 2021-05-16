@@ -52,6 +52,17 @@ the load data spec.
 Once loaded, you can see the segement data in the deep storage bucket at
 <http://localhost:9000/minio/druid-deepstorage/wikiticker-2015-09-12-sampled/>.
 
+## How it works
+
+Diff the `docker-compose.yml` and `environment` files with those in the Druid
+repository to see what I had to do to use MinIO with Druid. Here's a couple of
+one-liners to diff the two:
+
+```bash
+curl https://raw.githubusercontent.com/apache/druid/druid-0.21.0/distribution/docker/docker-compose.yml | diff - docker-compose.yml 
+curl https://raw.githubusercontent.com/apache/druid/druid-0.21.0/distribution/docker/environment | diff - environment
+```
+
 [Druid Docker Compose]: https://github.com/apache/druid/tree/master/distribution/docker
 [Deep Storage]: https://druid.apache.org/docs/latest/dependencies/deep-storage.html
 [known permission issue]: https://github.com/apache/druid/releases/tag/druid-0.21.0#21-docker-volume-ownership
